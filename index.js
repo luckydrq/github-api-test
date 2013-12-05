@@ -1,26 +1,67 @@
 //external lib
+var async = require('async')
 var toss = require('cool-error')
 var request = require('request')
+var GitHubApi = require('github')
 
-var GITHUB_API = 'https://api.github.com/'
-var exec = require('child_process').exec
-var api = [GITHUB_API, 'repos', 'luckydrq', ''].join('\/')
 
-var options = {
-  url: GITHUB_API + 'repos/luckydrq/github-api-test/git/refs/heads/master',
-  headers: {
-    'Accept': 'application/vnd.github.v3+json;q=0.9, application/json, */*;q=0.8',
-    'User-Agent': 'luckydrq'
-  }
-}
-request(options, function(err, res, body){
-  if(err) toss(err)
-  if(res.statusCode !== 200) toss({statusCode: res.statusCode}, true)
-  console.log(body)
+var github = new GitHubApi({
+  version: '3.0.0',
+  debug: false,
+  protocol: 'https'
 })
 
+var username = 'luckydrq'
+var password = 'drqzju2007'
+var repo = 'github-api-test'
+
+async.waterfall([
+  //authenticate
+  function(cb){
+    var ex = null
+    try{
+      github.authenticate({
+        type: 'basic',
+        username: username,
+        password: password
+      })
+    }
+    catch(exception){
+      ex = exception
+    }
+    cb(ex)
+  },
+
+  //get SHA-LASTEST-COMMIT
+  function(cb){
+    github.gitdata.getReference({
+      user: username,
+      repo: repo,
+      ref: 'heads/master'
+    }, function(err, result){
+      cb(err, result)
+    })
+  },
+
+  //get SHA-BASE-TREE
+  function(ref, cb){
+    var sha = ref.object.sha
+    github.gitdata.getCommit({
+      user: username,
+      repo: repo,
+      sha: sha
+    }, function(err, result){
+      cb(err, result)
+    })
+  },
+
+  ], function(err, results){
+    //console.log(results)
+    if(err) toss(err)
+  })
+
 process.on('uncaughtException', function(ex){
-  //console.log(ex.message)
+  console.log(ex.message.red)
   process.exit(1)
 })
 
