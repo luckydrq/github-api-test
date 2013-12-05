@@ -18,9 +18,10 @@ var config = require('./temp.json')
 var username = config.username
 var password = config.password
 var repo = config.repo
+var file = config.file
 
 var data = {
-  FILE_CONTENT: fs.readFileSync('./index.js', {encoding: 'utf-8'})
+  FILE_CONTENT: fs.readFileSync(path.join(__dirname, file), {encoding: 'utf-8'})
 }
 //console.log(data.FILE_CONTENT)
 async.waterfall([
@@ -92,7 +93,7 @@ async.waterfall([
       user: username,
       repo: repo,
       tree: [{
-        path: 'index.js',
+        path: file,
         type: 'blob',
         mode: '100644',
         sha: data.SHA_NEW_BLOB
