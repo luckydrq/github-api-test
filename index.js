@@ -156,6 +156,3 @@ function writeLog(msg){
 function writeResult(result){
   process.stdout.write([result, '\n'].join())
 }
-
-
-//exec(['curl ', GITHUB_API, ''])
