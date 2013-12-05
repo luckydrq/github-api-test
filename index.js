@@ -4,16 +4,17 @@ var toss = require('cool-error')
 var request = require('request')
 var GitHubApi = require('github')
 
-
+//github api
 var github = new GitHubApi({
   version: '3.0.0',
   debug: false,
   protocol: 'https'
 })
 
-var username = 'luckydrq'
-var password = 'xxxx'
-var repo = 'github-api-test'
+var config = require('temp.json')
+var username = config.username
+var password = config.password
+var repo = config.repo
 
 async.waterfall([
   //authenticate
@@ -54,6 +55,14 @@ async.waterfall([
       cb(err, result)
     })
   },
+
+  function(commit, cb){
+    var base_tree_sha = commit.tree.sha
+    github.gitdata.createTree({
+      user: username,
+      repo: repo
+    })
+  }
 
   ], function(err, results){
     //console.log(results)
