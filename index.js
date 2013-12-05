@@ -12,7 +12,7 @@ var github = new GitHubApi({
 })
 
 var username = 'luckydrq'
-var password = 'drqzju2007'
+var password = 'xxxx'
 var repo = 'github-api-test'
 
 async.waterfall([
