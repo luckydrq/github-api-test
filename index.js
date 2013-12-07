@@ -4,7 +4,6 @@ var path = require('path')
 //external lib
 var async = require('async')
 var toss = require('cool-error')
-var request = require('request')
 var GitHubApi = require('github')
 
 //github api
