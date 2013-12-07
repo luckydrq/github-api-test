@@ -1,0 +1,23 @@
+{
+  "debug": false,
+  "thx": {
+    "articles": [
+      {
+        "type": "mobile",
+        "text": "无线",
+        "path": "mobile/_posts"
+      },
+      {
+        "type": "products",
+        "text": "产品",
+        "path": "products/_posts"
+      },
+      {
+        "type": "projects",
+        "text": "项目",
+        "path": "projects/_posts"
+      }
+    ],
+    "url": "https://github.com/luckydrq/github-api-test/tree/master"
+  }
+}
