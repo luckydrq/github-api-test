@@ -1,4 +1,7 @@
 {
+  "scripts": {
+    "start": "node index.js"
+  },
   "dependencies": {
     "request": "~2.27.0",
     "cool-error": "~0.1.0"

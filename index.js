@@ -77,7 +77,7 @@ async.waterfall([
     github.gitdata.createBlob({
       user: username,
       repo: repo,
-      content: data.FILE_CONTENT,
+      content: data.FILE_CONTENT || '\/\/file content cannot be empty',
       encoding: 'utf-8'
     }, function(err, result){
       var sha_new_blob = data.SHA_NEW_BLOB = result.sha
