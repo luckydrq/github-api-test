@@ -7,16 +7,6 @@
         "type": "mobile",
         "text": "mobile",
         "path": "mobile/_posts"
-      },
-      {
-        "type": "products",
-        "text": "products",
-        "path": "products/_posts"
-      },
-      {
-        "type": "projects",
-        "text": "projects",
-        "path": "projects/_posts"
       }
     ]
   }
