@@ -1,7 +1,7 @@
 {
   "thx": {
-    "repo": "thx.github.io",
-    "ref": "heads/master",
+    "repo": "github-api-test",
+    "ref": "heads/gh-pages",
     "articles": [
       {
         "type": "mobile",
