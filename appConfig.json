@@ -1,20 +1,21 @@
 {
   "thx": {
-    "url": "https://github.com/luckydrq/github-api-test/tree/master",
+    "repo": "github-api-test",
+    "ref": "heads/gh-pages",
     "articles": [
       {
         "type": "mobile",
-        "text": "\u65E0\u7EBF",
+        "text": "mobile",
         "path": "mobile/_posts"
       },
       {
         "type": "products",
-        "text": "\u4EA7\u54C1",
+        "text": "products",
         "path": "products/_posts"
       },
       {
         "type": "projects",
-        "text": "\u9879\u76EE",
+        "text": "projects",
         "path": "projects/_posts"
       }
     ]
