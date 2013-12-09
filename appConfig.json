@@ -1,6 +1,6 @@
 {
-  "debug": false,
   "thx": {
+    "url": "https://github.com/luckydrq/github-api-test/tree/master",
     "articles": [
       {
         "type": "mobile",
@@ -17,7 +17,6 @@
         "text": "项目",
         "path": "projects/_posts"
       }
-    ],
-    "url": "https://github.com/luckydrq/github-api-test/tree/master"
+    ]
   }
 }
