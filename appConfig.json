@@ -17,11 +17,6 @@
         "type": "projects",
         "text": "projects",
         "path": "projects/_posts"
-      },
-      {
-        "type": "test",
-        "text": "test",
-        "path": "test/_posts"
       }
     ]
   }

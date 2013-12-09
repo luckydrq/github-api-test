@@ -46,7 +46,7 @@ async.waterfall([
     writeResult('success')
     writeLog('fetch SHA_LASTEST_COMMIT...')
     github.gitdata.getReference({
-      user: username,
+      user: 'thx',
       repo: repo,
       ref: 'heads/master'
     }, function(err, result){
@@ -60,7 +60,7 @@ async.waterfall([
   function(data, cb){
     writeLog('fetch SHA_BASE_TREE...')
     github.gitdata.getCommit({
-      user: username,
+      user: 'thx',
       repo: repo,
       sha: data.SHA_LASTEST_COMMIT
     }, function(err, result){
@@ -74,7 +74,7 @@ async.waterfall([
   function(data, cb){
     writeLog('fetch SHA_NEW_BLOB...')
     github.gitdata.createBlob({
-      user: username,
+      user: 'thx',
       repo: repo,
       content: data.FILE_CONTENT || '\/\/file content cannot be empty',
       encoding: 'utf-8'
@@ -89,7 +89,7 @@ async.waterfall([
   function(data, cb){
     writeLog('fetch SHA_NEW_TREE...')
     github.gitdata.createTree({
-      user: username,
+      user: 'thx',
       repo: repo,
       tree: [{
         path: file,
@@ -109,7 +109,7 @@ async.waterfall([
   function(data, cb){
     writeLog('fetch SHA_NEW_COMMIT...')
     github.gitdata.createCommit({
-      user: username,
+      user: 'thx',
       repo: repo,
       message: 'commit via github api',
       tree: data.SHA_NEW_TREE,
@@ -125,7 +125,7 @@ async.waterfall([
   function(data, cb){
     writeLog('push commit...')
     github.gitdata.updateReference({
-      user: username,
+      user: 'thx',
       repo: repo,
       ref: 'heads/master',
       sha: data.SHA_NEW_COMMIT,
