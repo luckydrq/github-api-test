@@ -4,17 +4,17 @@
     "articles": [
       {
         "type": "mobile",
-        "text": "无线",
+        "text": "\u65E0\u7EBF",
         "path": "mobile/_posts"
       },
       {
         "type": "products",
-        "text": "产品",
+        "text": "\u4EA7\u54C1",
         "path": "products/_posts"
       },
       {
         "type": "projects",
-        "text": "项目",
+        "text": "\u9879\u76EE",
         "path": "projects/_posts"
       }
     ]
